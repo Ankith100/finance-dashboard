@@ -1,73 +1,42 @@
-# React + TypeScript + Vite
+# Finance Dashboard (FinDash)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A single-page **personal finance dashboard** built with **React** and **Vite**. It tracks income and expenses with sample data stored in the browser (no backend). Amounts are formatted in **Indian Rupees (₹)**.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Dashboard** — Summary cards, balance-over-time chart, expense breakdown (pie chart), month-over-month comparison, and auto-generated insights (e.g. top spending category, savings rate, spend vs last month).
+- **Transactions** — Search, filter by income/expense and category, sort by date or amount. **Admin** can add, edit, and delete rows; **Viewer** is read-only. Export the list as **CSV**.
+- **Insights** — Dedicated view with the same insight cards plus monthly comparison and expense pie chart.
+- **UI** — Dark / light mode, responsive layout, **Recharts** for charts, **Tailwind CSS** for styling.
 
-## React Compiler
+## How to run
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+From the repository root:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+**Development** (hot reload; default [http://localhost:5173](http://localhost:5173)):
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm run dev
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+**Production build**:
+
+```bash
+npm run build
+```
+
+**Preview the production build** (after `npm run build`):
+
+```bash
+npm run preview
+```
+
+**Lint**:
+
+```bash
+npm run lint
 ```
